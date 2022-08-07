@@ -1,29 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddUser from './components/Users/AddUser';
-
-const Nav = () => {
-  return (
-    <nav className='flex sm:justify-center space-x-4'>
-      {[
-        ['Home', '/dashboard'],
-        ['SideBar', '/SideBar'],
-        ['Projects', '/projects'],
-        ['Reports', '/reports'],
-      ].map(([title, url], uuid) => (
-        // eslint-disable-next-line react/jsx-key
-        <a href={url} key={uuid} className='rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900'>
-          {title}
-        </a>
-      ))}
-    </nav>
-  );
-};
+import UsersList from './components/Users/UsersList';
+import Nav from './components/UI/Nav';
 
 function App() {
+  const [usersList, setUsersList] = useState([]);
+
+  const addUserHandler = (uName, uAge) => {
+    setUsersList((prevUserList) => {
+      return [...prevUserList, { name: uName, age: uAge }];
+    });
+  };
   return (
     <div className=''>
       <Nav />
-      <AddUser />
+      <AddUser addUser={addUserHandler} />
+      <UsersList users={[]} />
     </div>
   );
 }
