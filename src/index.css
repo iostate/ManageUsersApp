@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  background: #1f1f1f;
+}
+
+body {
+  margin: 0;
+}
+
+/* .form {
+    
+    
+    
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .form input, button {
+
+      border-radius:5px;
+  
+  } */
