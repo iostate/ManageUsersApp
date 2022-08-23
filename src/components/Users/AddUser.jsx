@@ -9,15 +9,20 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
+
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       return;
     }
     if (+enteredAge < 1) {
       return;
     }
-    // Adds a User to the state, in the context it's called from
-    props.addUser();
 
+    props.addUser(enteredUsername, enteredAge);
+    resetForm();
+  };
+
+  // HELPER & ONCHANGE FUNCTIONS
+  const resetForm = () => {
     setEnteredUsername('');
     setEnteredAge('');
   };
@@ -29,6 +34,7 @@ const AddUser = (props) => {
   const ageChangeHandler = (event) => {
     setEnteredAge(event.target.value);
   };
+  // END
 
   return (
     <Card className={classes.input}>

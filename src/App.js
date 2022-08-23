@@ -15,7 +15,7 @@ function App() {
     <div className=''>
       <Nav />
       <AddUser addUser={addUserHandler} />
-      <UsersList users={[]} />
+      <UsersList users={usersList} />
     </div>
   );
 }
